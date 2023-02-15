@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <title>Alula - Blockchain fast start</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:image" content="path/to/image.jpg">
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#333">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#333">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#333">
+  <meta name="csrf-token" content="HmDq8utNy5pJZx9UonaIyPl0S8zgPOp7VxRLL7sM">
+  <meta name="google-site-verification" content="N4US0yEKVXP7KpLi4lPsrfQC8MtnBW-4sx63GzkNS7k" />
+  <meta name="yandex-verification" content="2c29a9827c672b36" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/tilda/images/favicon-3.png"><!-- Assets -->
+  <link href='/sitemap.xml' rel='alternate' title='Sitemap' type='application/rss+xml' />
+  <style>
+    html {
+      opacity: 0;
+      background-color: #0c0e14;
+    }
+  </style>
+  <link href="/css/main.min.css" rel="stylesheet" type="text/css">
+  <link href="/build/css/app-763f73e5bb.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+  <script src="/js/libs/vue.js"></script>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '558290908768656');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=558290908768656&ev=PageView&noscript=1" /></noscript>
+  <!-- End Facebook Pixel Code -->
+
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-WVBCHKN');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166352498-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    //gtag('config', 'AW-638452618');
+    gtag('config', 'UA-166352498-1');
+  </script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+      m[i].l = 1 * new Date(); k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(55913668, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true
+    });
+  </script>
+  <noscript>
+    <div><img src="https://mc.yandex.ru/watch/55913668" style="position:absolute; left:-9999px;" alt="" /></div>
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+
+
+</head>
+<style>
+  .col-lg-2 {
+    width: auto !important;
+  }
+</style>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVBCHKN" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div class="top-line">
+    <div class="container">
+      <div class="row menu-row">
+        <!--<div class="col-lg-12 hello-user">
+                    <span>Добро пожаловать,  </span>
+
+        </div>-->
+        <div class="col-lg-2">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+        </div>
+        <span class="logo-title">Alula</span>
+        </a>
+      </div>
+      <!--
+        <div class="col-lg-10 menu-col">
+          <nav>
+                          <ul class="left_ul">
+                              </ul>
+              <ul>
+                                  <li class="noti-li">
+                    <a href="60686" class="noti-li-a">
+                      <svg class="bell-svg" width="20" height="23" viewBox="0 0 20 23">
+                        <path d="M9.8 23a3.96 3.96 0 0 1-3.849-3.039H1.575C.707 19.961 0 19.325 0 18.545c0-.618.388-1.287.747-1.647l1.163-1.162c.104-.105.232-.415.232-.563V9.98c0-3.387 2.174-6.34 5.365-7.403v-.093C7.507 1.137 8.647 0 9.997 0c1.352 0 2.495 1.137 2.495 2.484v.093c3.192 1.064 5.366 4.016 5.366 7.403v5.193c0 .148.128.458.232.563l1.163 1.162c.36.362.747 1.03.747 1.647 0 .78-.707 1.416-1.575 1.416h-4.776A3.96 3.96 0 0 1 9.8 23zm-1.995-3.039a2.195 2.195 0 0 0 3.989 0H7.805zm5.283-1.759h4.972a.746.746 0 0 0-.056-.063l-1.161-1.16c-.434-.435-.748-1.194-.748-1.806V9.98c0-2.849-1.885-5.215-4.69-5.887a.88.88 0 0 1-.675-.855v-.754c0-.373-.357-.726-.734-.726-.366 0-.726.36-.726.726v.754a.88.88 0 0 1-.676.855c-2.805.672-4.69 3.038-4.69 5.887v5.193c0 .612-.314 1.371-.746 1.804L1.995 18.14a.609.609 0 0 0-.054.062h4.572a.906.906 0 0 1 .43 0h5.715a.91.91 0 0 1 .43 0z"/>
+                      </svg>
+                                          </a>
+                    <ul class="black_menu">
+                      <li class="pointer"></li>
+
+                      
+                    </ul>
+                  </li>
+                
+                
+                <li > <a href="/dashboard/0">Курсы</a> </li>
+
+                <li> <a href="/page_diaries">Отзывы</a></li>
+                <li> <a href="/blog">Блог</a></li>
+                <li> <a href="/user_settings">Настройки</a></li>
+                                                <li class="sing-col">
+                  <div class="enter-button ex-b">Выход</div>
+                </li>
+
+              </ul>
+                      </nav>
+        </div>-->
+    </div>
+
+  </div>
+  </div>
+
+  <!--humburger menu button-->
+  <div class="hum">
+    <div class="hum-l1"></div>
+    <div class="hum-l2"></div>
+    <div class="hum-l3"></div>
+  </div>
+
+  <div class="scroll-up">
+    <i class="dripicons-rocket"></i>
+    <span>TOP</span>
+  </div>
+
+  <script src="/js/scripts.min.js"></script>
+  <script src="/js/libs/vue-html5-editor/vue.js"></script>
+  <script src="/build/js/app-6a9622128a.js"></script>
+  <div class="">
+    <span></span>
+  </div>
+
+  <style>
+    #class_construct .input-div {
+      padding-left: 0;
+    }
+  </style>
+  <section id="class_construct">
+    <div class="container">
+      <div class="row curs-header" style="margin-top:60px;">
+        <div class="col-md-12" style="text-align: center;">
+          <h1 style="margin-bottom: 10px;">Спасибо за регистрацию.<br/>Теперь Вам доступен бесплатный курс Blockchain fast start</h1>
+        </div>
+        <div class="col-md-12 hi-col">
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row step-panel">
+        <div class="col-md-12">
+          <ul style="padding:10px 0">
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="0.html" style="color:inherit;"><span>Этап 1: Введение.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="1.html" style="color:inherit;"><span>Этап 2. BLOCKCHAIN.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="2.html" style="color:inherit;"><span>Этап 3. ФИНАНСЫ И КРИПТОВАЛЮТА.</span></a>
+              </div>
+            </li>
+            <li class="active">
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="3.html" style="color:inherit;"><span>Этап 4: ИНВЕСТИЦИИ.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="4.html" style="color:inherit;"><span>Этап 5: ТРЕЙДИНГ.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="5.html" style="color:inherit;"><span>Этап 6: БИРЖИ.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="6.html" style="color:inherit;"><span>Этап 7: ICO.</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="7.html" style="color:inherit;"><span>Этап 8: КОШЕЛЬКИ</span></a>
+              </div>
+            </li>
+            <li>
+              <div class="step-panel-option" style="height:unset;padding:15px 0 10px 0;">
+                <a href="8.html" style="color:inherit;"><span>Этап 9: МАЙНИНГ.</span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row settings-content" style="min-height:350px;">
+        <div class="col-md-8" style="margin:auto; margin-top:30px; float:unset; padding:0!important;">
+          <div class="form-block" style="padding-right: 0px;">
+            <div class="step-content for_student">
+              Для удобства каждый блок курса сформирован в плеер с плей-листом, где вы можете выбрать нужный вам подраздел урока в боковом меню.
+              <div class="input-div" v-for="(item, i) in step.step_html">
+                <div v-if="item.type=='title'" v-html="item.text" class="title-input"></div>
+                <!--<div v-if="item.type=='text'" v-html="item.text" class="text-input" style="white-space: pre-line;">
+                </div>
+                <div v-if="item.type=='image'" class="verif-block" style="height:auto;">
+                  <div class="img-block">
+                    <a :href="item.title" style="height:unset"><img v-if="item.text" :src="item.text"
+                        alt="content image"></a>
+                  </div>
+                </div>-->
+                <div v-if="item.type=='video'" class="video_block">
+                  <iframe style="min-height: 400px;" width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLgp5Acz1DcSKnR4La2gBpHKbP4RvYfSnC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div v-if="item.type=='accordeon'" class="accordeon_block">
+                  <div class="accordeon_block_title">
+                    <a href="#" class="accordeon_but" style="margin-left:0; height:unset;">
+                      <svg viewBox="0 0 5.3 5.3" width="21" height="21">
+                        <path
+                          d="m 5,2.5 a 0.37738073,0.33072917 0 0 0 -0.38214,-0.32481 h -4.52611 a 0.37738073,0.33072917 0 1 0 0,0.66137 h 4.52611 a 0.37738073,0.33072917 0 0 0 0.38214,-0.33656 z" />
+                        <path
+                          d="m 2.5,5 a 0.33072917,0.37738072 0 0 0 0.32481,-0.38214 v -4.52611 a 0.33072917,0.37738072 0 1 0 -0.66137,0 v 4.52611 a 0.33072917,0.37738072 0 0 0 0.33656,0.38214 z" />
+                      </svg>
+                    </a>
+                    <div class="title-input" v-html="item.title"></div>
+                  </div>
+                  <div class="accordeon_block_text">
+                    <div class="text-input" v-html="item.text" style="white-space: pre-line;"></div>
+                  </div>
+                </div>
+                <div v-if="item.type=='file'" class="filelink_block" style="padding-left:0;">
+                  <div class="filelink_block_icon" style="width:unset;">
+                    <img class="file_ic_set" :src="item.video" alt="">
+                  </div>
+                  <div class="filelink_block_inp">
+                    <a :href="item.title" target="_blank">{{item.text}}</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!--Окно выхода -->
+  <div class="popup-bg exit">
+
+    <div class="popup-request">
+      <div class="popup-request-inner" style="height:auto;">
+        <div class="title">
+          Выйти из аккаунта?
+        </div>
+        <div class="message">
+          Если вы вышли из аккаунта, вы не будете получать уведомления в браузер.
+        </div>
+        <div class="controls">
+          <a href="https://isaevworkshop.com/logout" class="controls-exit">Выйти</a>
+          <a href="" class="controls-leave">Пожалуй останусь</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--Окно успешного выполнения действия-->
+  <div class="popup-bg email-success save-success">
+
+    <div class="container">
+      <div class="pp-menu-row row" style="margin-top:20px;">
+        <div class="col-md-2">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+            <span class="logo-title">Alula</span>
+          </a>
+        </div>
+        <div class="col-md-10" style="text-align:right;">
+          <div class="exit-button">
+            <div class="x">+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-request">
+        <div class="popup-request-inner">
+          <div class="title">
+            Поздравляем!
+          </div>
+          <i class="fa fa-check"></i>
+          <div class="message" style="text-align:center;margin:0;">
+            <p>Операция выполнена успешно!</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--Окно успешной отправки почты-->
+  <div class="popup-bg email-success">
+
+    <div class="container">
+      <div class="pp-menu-row row" style="margin-top:20px;">
+        <div class="col-md-2">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+            <span class="logo-title">Alula</span>
+          </a>
+        </div>
+        <div class="col-md-10" style="text-align:right;">
+          <div class="exit-button">
+            <div class="x">+</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-request">
+        <div class="popup-request-inner">
+          <div class="title">
+            Сообщение отправлено!
+          </div>
+          <i class="fa fa-check"></i>
+          <div class="message">
+            Ваше сообщение отправлено. Ожидайте обратной связи в ближайшее время.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--Окно неудачной оплаты-->
+  <div class="popup-bg email-failed">
+    <div class="container">
+      <div class="pp-menu-row row" style="margin-top:20px;">
+        <div class="col-md-2">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+            <span class="logo-title">Alula</span>
+          </a>
+        </div>
+        <div class="col-md-10" style="text-align:right;">
+          <div class="exit-button">
+            <div class="x">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-request">
+        <div class="popup-request-inner">
+          <div class="title failed_title">
+            Не удалось выполнить операцию!
+          </div>
+          <svg viewBox="0 0 20 20" width="40" height="40" style="margin-top:40px;fill:#f03f3f">
+            <g transform="translate(-1.4835914e-7,-291.70864)">
+              <path
+                d="m 18.955196,291.6429 a 0.99958936,0.99917008 0 0 0 -0.687149,0.30246 l -8.2750686,8.27159 -8.2360262,-8.25014 a 0.99958936,0.99917008 0 0 0 -0.7164307,-0.30245 0.99958936,0.99917008 0 0 0 -0.69300528,1.7191 l 8.23016968,8.24819 -8.2594516,8.25794 a 0.99958936,0.99917008 0 1 0 1.4152924,1.40689 l 8.2555474,-8.25209 8.2867819,8.30477 a 1.0021435,1.0017232 0 0 0 1.417245,-1.41665 l -8.288734,-8.30281 8.280924,-8.27551 a 0.99958936,0.99917008 0 0 0 -0.730095,-1.71129 z">
+              </path>
+            </g>
+          </svg>
+
+          <div class="message" style="text-align:center;">
+            К сожалению произошла ошибка, попробуйте еще раз позже.<br> Если ошибка повториться,<br> <a href="#"
+              class="recall-button">обязательно напишите нам</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Окно показа фото -->
+
+  <div class="popup-bg user_doc">
+    <div class="container">
+      <div class="pp-menu-row row" style="margin-top:20px;">
+        <div class="col-md-2">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+            <span class="logo-title">Alula</span>
+          </a>
+        </div>
+        <div class="col-md-10" style="text-align:right;">
+          <div class="exit-button">
+            <div class="x">+</div>
+          </div>
+        </div>
+      </div>
+      <div class="popup-request">
+        <div class="popup-request-inner user_doc_img"></div>
+      </div>
+    </div>
+  </div>
+  <footer id="main-footer" class="main-footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm-4">
+          <a href="/" class="logo">
+            <div class="logo-svg">
+              <img src="../../img/just-logo.png" alt="" style="height: 40px; margin-right: 10px;">
+            </div>
+            <div class="logo-title">Alula</div>
+          </a>
+        </div>
+        <!--
+      <div class="col-sm-4">
+        <div class="footer-menu">
+                      <a href="#"><img src="/img/wallets/cards.png" alt="payment_methods"> </a>
+                      <a href="/oferta.pdf">Договор оферты</a>
+                      <a href="/terms.pdf">Правила размещения информации на сайте</a>
+                  </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="footer-menu footer-menu-2">
+                      <a href="/dashboard/0">Список курсов</a>
+                      <a href="/about_us">О нас</a>
+                      <a href="/anonce_subscribe">Подписаться на анонсы</a>
+                      <a href="/conditions.pdf">Политика конфиденциальности</a>
+                  </div>
+      </div>-->
+      </div>
+    </div>
+  </footer>
+  <script>
+    $(document).on('click', '.diaries .item-img.add-foto', function () {
+      var img_path = $(this).attr('data-src');
+      $('.user_doc_img').html('<img src="' + img_path + '" alt="foto" style="width:100%">');
+      $('.user_doc').fadeIn().css('display', 'flex');
+    });
+
+    var class_construct = new Vue({
+      el: '#class_construct',
+      data: {
+        step_id: 130,
+        step: { "id": 130, "curs_id": 52, "step_header_img": "", "step_header_text": "", "step_title": "\u042d\u0442\u0430\u043f 1: \u041c\u043e\u043d\u0442\u0430\u0436.", "step_html": [{ "type": "image", "title": "", "text": "\/upload\/img_02-04-20_16-27-27.png", "video": "", "theme": "", "visible": 1, "packet": "" }, { "type": "text", "title": "", "text": "\u0412\u0441\u0435\u043c \u043f\u0440\u0438\u0432\u0435\u0442. \u042d\u0442\u043e \u043d\u0430\u0448 \u043a\u0443\u0440\u0441 \u043f\u043e \u041f\u043e\u0441\u0442\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0435, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0432\u043f\u0435\u0440\u0432\u044b\u0435 \u043f\u0440\u043e\u0448\u0451\u043b \u0432 2017 \u0433\u043e\u0434\u0443. \u0421 \u0442\u0435\u0445 \u043f\u043e\u0440 \u043c\u044b \u0435\u0433\u043e \u0437\u0430\u043f\u0443\u0441\u043a\u0430\u043b\u0438 \u0435\u0449\u0451 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0440\u0430\u0437, \u0430 \u0447\u0435\u0440\u0435\u0437 \u043a\u0430\u043a\u043e\u0435 \u0442\u043e \u0432\u0440\u0435\u043c\u044f, \u043a\u043e\u0433\u0434\u0430 \u043c\u044b \u0441\u043e\u0441\u0440\u0435\u0434\u043e\u0442\u043e\u0447\u0438\u043b\u0438\u0441\u044c \u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0441\u043b\u043e\u0436\u043d\u044b\u0445 \u0438 \u044d\u0444\u0444\u0435\u043a\u0442\u0438\u0432\u043d\u044b\u0445 \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f\u0445, \u0441\u0434\u0435\u043b\u0430\u043b\u0438 \u0435\u0433\u043e \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u043c.\n\n\u041c\u044b \u0430\u043a\u043a\u0443\u0440\u0430\u0442\u043d\u043e \u0435\u0433\u043e \u0443\u043f\u0430\u043a\u043e\u0432\u0430\u043b\u0438 \u0432 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u044d\u0442\u0430\u043f\u043e\u0432 \u043d\u0430 \u043d\u0430\u0448\u0435\u043c \u0441\u0430\u0439\u0442\u0435 \u0434\u043b\u044f \u0442\u043e\u0433\u043e, \u0447\u0442\u043e\u0431\u044b \u0432\u0430\u043c \u0431\u044b\u043b\u043e \u0443\u0434\u043e\u0431\u043d\u043e \u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0443\u0440\u043e\u043a\u0438. \u0412\u044b\u043b\u0435\u0442\u043e\u0432 \u0438 \u0434\u0435\u0434\u043b\u0430\u0439\u043d\u043e\u0432 \u043d\u0430 \u043d\u0451\u043c \u043d\u0435\u0442, \u043a\u0430\u043a \u0438 \u043e\u0431\u0440\u0430\u0442\u043d\u043e\u0439 \u0441\u0432\u044f\u0437\u0438 \u0438 \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u0438 \u0441\u043b\u0435\u0434\u0438\u0442\u044c \u0437\u0430 \u0442\u0435\u043c, \u0447\u0435\u043c \u0437\u0430\u043d\u0438\u043c\u0430\u044e\u0442\u0441\u044f \u0434\u0440\u0443\u0433\u0438\u0435 \u0443\u0447\u0435\u043d\u0438\u043a\u0438, \u0447\u0442\u043e\u0431\u044b \u0443\u043b\u0443\u0447\u0448\u0430\u0442\u044c \u0438 \u0441\u0432\u043e\u0439 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442, \u043d\u043e \u0441\u0430\u043c \u043f\u043e \u0441\u0435\u0431\u0435 \u043e\u043d \u043e\u0442\u043d\u043e\u0441\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0440\u043e\u0441\u0442\u043e\u0439, \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0432 \u044d\u0442\u043e\u043c \u043d\u0435\u0442 \u0447\u0435\u0433\u043e \u0441\u0442\u0440\u0430\u0448\u043d\u043e\u0433\u043e.\n\n\u0424\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0439 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u043d\u0435 \u043f\u043e\u0445\u043e\u0436 \u043d\u0430 \u0442\u043e, \u0447\u0442\u043e \u0441\u0435\u0439\u0447\u0430\u0441 \u0432 \u0442\u0440\u0435\u043d\u0434\u0435, \u043d\u043e \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430\u0440\u0438\u0439, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0437\u0430\u0442\u0440\u0430\u0433\u0438\u0432\u0430\u0435\u0442 \u044d\u0442\u043e\u0442 \u043a\u0443\u0440\u0441, \u043d\u0430\u0443\u0447\u0438\u0442 \u0432\u0430\u0441 \u0443\u0432\u0435\u0440\u0435\u043d\u043d\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c\u0441\u044f \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u043e\u0439 After Effects \u0434\u043b\u044f \u043f\u043e\u0441\u0442\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0438 \u043f\u043e\u043d\u0438\u043c\u0430\u0442\u044c \u043a\u0430\u043a \u0443\u0441\u0442\u0440\u043e\u0435\u043d \u043f\u043e\u0447\u0442\u0438 \u043b\u044e\u0431\u043e\u0439 \u044d\u0444\u0444\u0435\u043a\u0442, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0432\u044b \u0441\u043c\u043e\u0436\u0435\u0442\u0435 \u043d\u0430\u0439\u0442\u0438 \u0432 \u0441\u0435\u0442\u0438. \u0412\u044b \u0441\u043c\u043e\u0436\u0435\u0442\u0435 \u0434\u0435\u043b\u0430\u0442\u044c \u043a\u043b\u0438\u043d\u0430\u043f, \u0438\u0437\u043c\u0435\u043d\u044f\u0442\u044c \u0432\u043d\u0435\u0448\u043d\u0438\u0439 \u0432\u0438\u0434 \u043b\u043e\u043a\u0430\u0446\u0438\u0438 \u0438 \u0432\u043e\u043e\u0431\u0449\u0435 \u0434\u0435\u043b\u0430\u0442\u044c \u0441 \u043e\u0442\u0441\u043d\u044f\u0442\u044b\u043c \u043c\u0430\u0442\u0435\u0440\u0438\u0430\u043b\u043e\u043c \u043f\u043e\u0441\u043b\u0435 \u043a\u0443\u0440\u0441\u0430 \u043f\u043e\u0447\u0442\u0438 \u0432\u0441\u0435, \u0447\u0442\u043e \u0437\u0430\u0434\u0443\u043c\u0430\u0435\u0442\u0435. HUD \u0433\u0440\u0430\u0444\u0438\u043a\u0430, \u0430\u043d\u0438\u043c\u0430\u0446\u0438\u044f \u044d\u043b\u0435\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u0440\u0430\u0431\u043e\u0442\u0430 \u0441 Element 3d \u2014 \u044d\u0442\u043e \u043e\u0447\u0435\u043d\u044c \u0440\u0430\u0441\u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0451\u043d\u043d\u044b\u0435 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u044b \u0434\u043b\u044f \u043d\u0438\u0437\u043a\u043e\u0431\u044e\u0434\u0436\u0435\u0442\u043d\u043e\u0433\u043e \u0438 \u0441\u0440\u0435\u0434\u043d\u0435 \u0431\u044e\u0434\u0436\u0435\u0442\u043d\u043e\u0433\u043e \u0441\u0435\u0433\u043c\u0435\u043d\u0442\u0430 \u0432\u0438\u0434\u0435\u043e.\n\n\u0415\u0441\u043b\u0438 \u0433\u043e\u0432\u043e\u0440\u0438\u0442\u044c \u043e \u043a\u043e\u043c\u043c\u0435\u0440\u0447\u0435\u0441\u043a\u043e\u043c \u043d\u0430\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0438, \u0442\u043e \u0441\u0435\u0439\u0447\u0430\u0441 \u0432\u044b \u0432\u0440\u044f\u0434 \u043b\u0438 \u043d\u0430\u0439\u0434\u0451\u0442\u0435 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u044b\u0439 \u0438\u043b\u0438 \u0434\u0435\u0448\u0451\u0432\u044b\u0439 \u043a\u0443\u0440\u0441 \u043f\u043e After Effects, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0434\u0430\u0441\u0442 \u0431\u043e\u043b\u0435\u0435 \u0432\u0430\u0436\u043d\u044b\u0435 \u043d\u0430\u0432\u044b\u043a\u0438. \u041f\u043e\u0441\u043b\u0435 \u043f\u0440\u043e\u0445\u043e\u0436\u0434\u0435\u043d\u0438\u044f \u044d\u0442\u043e\u0433\u043e \u043a\u0443\u0440\u0441\u0430 \u0432\u044b \u0431\u0443\u0434\u0435\u0442\u0435 \u0443\u043c\u0435\u0442\u044c \u0432\u044b\u043f\u043e\u043b\u043d\u044f\u0442\u044c \u0441\u0430\u043c\u044b\u0435 \u0440\u0430\u0441\u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0451\u043d\u043d\u044b\u0435 \u0438 \u0432\u043e\u0441\u0442\u0440\u0435\u0431\u043e\u0432\u0430\u043d\u043d\u044b\u0435 \u0437\u0430\u0434\u0430\u0447\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u043d\u0430 \u0444\u0440\u0438\u043b\u0430\u043d\u0441\u0435 \u0438\u043b\u0438 \u0432\u044b\u043f\u043e\u043b\u043d\u044f\u0442\u044c \u043d\u0430 \u0440\u044f\u0434\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0434\u0430\u043a\u0448\u043d-\u0441\u0442\u0443\u0434\u0438\u0438. \n\n\u041d\u0430 \u0441\u0430\u043c\u043e\u043c \u0434\u0435\u043b\u0435 \u044d\u0442\u043e \u043e\u0447\u0435\u043d\u044c \u0432\u0430\u0436\u043d\u044b\u0439 \u043a\u0443\u0440\u0441, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u043f\u043e\u043a\u0440\u044b\u0432\u0430\u0435\u0442 \u0412\u0421\u0415 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u044b\u0435 \u043d\u0430\u0432\u044b\u043a\u0438, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043d\u0443\u0436\u043d\u044b \u0412\u0421\u0415\u041c \u043b\u044e\u0434\u044f\u043c, \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u0445\u043e\u0442\u044f\u0442 \u0437\u0430\u043d\u0438\u043c\u0430\u0442\u044c\u0441\u044f \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u043e\u043c \u0432\u0438\u0434\u0435\u043e. \u041d\u0435 \u043f\u0440\u043e\u0439\u0442\u0438 \u0435\u0433\u043e \u2014 \u0437\u043d\u0430\u0447\u0438\u0442 \u0441\u0438\u043b\u044c\u043d\u043e \u043e\u0442\u0441\u0442\u0430\u0432\u0430\u0442\u044c \u043e\u0442 \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u043e\u0432 \u0438 \u0434\u0440\u0443\u0433\u0438\u0445 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442\u043e\u0432, \u0430 \u043f\u0440\u043e\u0439\u0442\u0438 \u2014 \u0437\u043d\u0430\u0447\u0438\u0442 \u0441\u044d\u043a\u043e\u043d\u043e\u043c\u0438\u0442\u044c \u0441\u0435\u0431\u0435 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u043b\u0435\u0442 \u043f\u043e\u0438\u0441\u043a\u043e\u0432 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u0438\u0437 \u0440\u0430\u0437\u043d\u044b\u0445 \u0438\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u043e\u0432.\n\n\u0421\u0430\u043c\u044b\u0439 \u043f\u0435\u0440\u0432\u044b\u0439 \u044d\u0442\u0430\u043f \u0437\u0430\u0442\u0440\u0430\u0433\u0438\u0432\u0430\u0435\u0442 \u043c\u043e\u043d\u0442\u0430\u0436 \u0432\u0438\u0434\u0435\u043e. \n\n\u0412\u0430\u043c \u043c\u043e\u0436\u0435\u0442 \u043f\u043e\u043a\u0430\u0437\u0430\u0442\u044c\u0441\u044f, \u0447\u0442\u043e \u0432\u044b \u0445\u043e\u0440\u043e\u0448\u043e \u0440\u0430\u0437\u0431\u0438\u0440\u0430\u0435\u0442\u0435\u0441\u044c \u0432 \u043d\u0451\u043c \u0438 \u0445\u043e\u0447\u0435\u0442\u0441\u044f \u0443\u0436\u0435 \u043f\u0440\u0438\u0441\u0442\u0443\u043f\u0438\u0442\u044c \u043a \u043e\u0441\u0442\u0430\u043b\u044c\u043d\u044b\u043c \u0443\u0440\u043e\u043a\u0430\u043c, \u043d\u043e \u043d\u0435 \u0441\u043f\u0435\u0448\u0438\u0442\u0435. \u042d\u0442\u043e\u0442 \u044d\u0442\u0430\u043f \u0443\u0447\u0438\u0442 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u043c\u043e\u043d\u0442\u0430\u0436\u0443, \u0430 \u0435\u0449\u0451 \u0438 \u0440\u0430\u0437\u0432\u0438\u0432\u0430\u0435\u0442 \u0447\u0443\u0432\u0441\u0442\u0432\u043e \u0442\u0430\u0439\u043c\u0438\u043d\u0433\u0430, \u0447\u0442\u043e \u043a\u0443\u0434\u0430 \u0432\u0430\u0436\u043d\u0435\u0435 \u043f\u0440\u043e\u0441\u0442\u043e\u0433\u043e \u0437\u043d\u0430\u043d\u0438\u044f \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432.\n\n\u0422\u0430\u043a \u0447\u0442\u043e \u0443\u0441\u043f\u0435\u0445\u043e\u0432 \u0432 \u043f\u0440\u043e\u0445\u043e\u0436\u0434\u0435\u043d\u0438\u0438 \u0438 \u0443\u043f\u043e\u0440\u0441\u0442\u0432\u0430. \u041f\u0440\u0438\u0441\u0442\u0443\u043f\u0430\u0439\u0442\u0435 \u0438 \u043d\u0435 \u0437\u0430\u0431\u0443\u0434\u044c\u0442\u0435 \u0432\u0441\u0442\u0443\u043f\u0438\u0442\u044c \u0432 <a href=\"http:\/\/t.me\/guestchat\">\u043d\u0430\u0448 \u0447\u0430\u0442<\/a> \u0434\u043b\u044f \u0442\u043e\u0433\u043e, \u0447\u0442\u043e\u0431\u044b \u0441\u043a\u0438\u0434\u044b\u0432\u0430\u0442\u044c \u0441\u0432\u043e\u0438 \u0447\u0435\u0440\u043d\u043e\u0432\u0438\u043a\u0438 \u043d\u0430 \u043e\u0446\u0435\u043d\u043a\u0443.\n\n\n\u041d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u043e\u0435 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b \u0434\u043b\u044f \u043f\u0440\u043e\u0445\u043e\u0436\u0434\u0435\u043d\u0438\u044f \u043a\u0443\u0440\u0441\u0430:\nAdobe Premiere Pro 2017 \u0438\u043b\u0438 \u043d\u043e\u0432\u0435\u0435.\nAdobe After Effects 2017 \u0438\u043b\u0438 \u043d\u043e\u0432\u0435\u0435.\nAdobe Media Encoder 2017 \u0438\u043b\u0438 \u043d\u043e\u0432\u0435\u0435.\nLightroom Classic\nElement 3D 2.2.2\n\n1. \u0412\u043d\u0438\u043c\u0430\u0442\u0435\u043b\u044c\u043d\u043e \u0438\u0437\u0443\u0447\u0430\u0435\u043c <a href=\"https:\/\/docs.google.com\/document\/d\/1gTwoFoyaoJ-4WJe6oldEP0ZqgV6gfOcXPplsGhRMrbg\/\">\u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0437\u0430\u0434\u0430\u043d\u0438\u0435 <\/a>\u043f\u0435\u0440\u0432\u043e\u0433\u043e \u044d\u0442\u0430\u043f\u0430. \n2. \u041f\u0440\u0438\u0441\u0442\u0443\u043f\u0430\u0435\u043c \u043a \u0440\u0430\u0431\u043e\u0442\u0435, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044f \u0443\u0440\u043e\u043a.\n\n\u0421\u0432\u0435\u0440\u0445\u0443 \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u043d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f \u043f\u043e \u043a\u0443\u0440\u0441\u0443.", "video": "", "theme": "", "visible": 1, "packet": "" }, { "type": "video", "title": "", "text": "https:\/\/youtu.be\/ZzPMdnWDSws", "video": "<iframe width=\"570\" height=\"300\" src=\"https:\/\/www.youtube.com\/embed\/ZzPMdnWDSws?autoplay=0\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen><\/iframe>", "theme": "", "visible": 1, "packet": "" }], "rules_title": "", "step_rules": [], "step_students": 0, "step_begining": "0000-00-00 00:00:00", "step_deadline": "0000-00-00 00:00:00", "step_visible": 1, "file_field": "", "link_field": "", "work_descript": "", "access_but": "", "restrict_but": "", "theme_select": 0, "created_at": "2020-04-02 19:26:33", "updated_at": "2022-06-14 19:27:34" },
+      },
+      computed: {
+
+      },
+      methods: {
+        sendDate(date) {
+          var month = date.getMonth() + 1;
+          if (month < 10) month = '0' + month;
+          var day = date.getDate();
+          if (day < 10) day = '0' + day;
+          var hours = date.getHours();
+          if (hours < 10) hours = '0' + hours;
+          var min = date.getMinutes();
+          if (min < 10) min = '0' + min;
+          return day + '.' + month + '.' + date.getFullYear() + ' ' + hours + ':' + min;
+        },
+
+      },
+
+      created: function () {
+
+      },
+      mounted: function () {
+
+      },
+    })
+  </script>
+
+
+  <style>
+    .callback-btn {
+      display: inline-block;
+      position: fixed;
+      right: 10px;
+      bottom: 15px;
+      padding: 7px 15px;
+      border-radius: 30px;
+      background-color: #c2c3c4;
+      color: #0c0e14;
+      font-size: 16px;
+      z-index: 100;
+      text-decoration: none;
+      transition: 0.3s;
+      font-family: 'Anton', Arial, sans-serif;
+    }
+
+    .callback-btn:hover {
+      color: #0c0e14;
+      opacity: .6;
+    }
+  </style>
+  <a href="https://t.me/alulaedc" class="callback-btn" target="_blank">Связаться с нами</a>
+</body>
+
+</html>

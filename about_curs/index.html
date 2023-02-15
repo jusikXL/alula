@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./main.css">
+</head>
+<body>
+<div class="container">
+    <div class="log-form">
+        <h2>Отправка формы в телеграм</h2>
+        <form class="telegram-form">
+          <input type="text" name="name" placeholder="Имя" autocomplete="off" />
+          <input type="text" name="phone" placeholder="Телефон" autocomplete="off" />
+          <input type="text" name="email" placeholder="Email" autocomplete="off" />
+          <textarea name="text"></textarea>
+          <input type="file" name="file">
+          <button type="submit" class="btn">отправить</button>
+        </form>
+
+        <form  action="https://sheetdb.io/api/v1/18qkzoqril3er" method="post" id="sheetdb-form">
+          <input type="hidden" name="_token" value="HmDq8utNy5pJZx9UonaIyPl0S8zgPOp7VxRLL7sM">
+          <div class="input-div">
+            <input type="email" id="email" name="data[email]" value="" placeholder="Ваш E-mail" required autofocus>
+            <img src="/img/svg/login.svg" alt="login">
+          </div>
+          <div class="input-div">
+              <input type="text" id="email" name="data[name]" value="" placeholder="Ваше имя" required autofocus>    
+          </div>
+          <div class="input-div">
+            <input type="submit" class="button" value="Зарегистрироваться" id="formas3">
+            <img src="/img/svg/arr-right-w.svg" alt="arr-right">
+          </div>
+
+
+          
+  
+        </form>
+      </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./main.js"></script>
+
+    <script>
+      var form = document.getElementById('sheetdb-form');
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+        method : "POST",
+        body: new FormData(document.getElementById("sheetdb-form")),
+    }).then(
+        response => response.json()
+    ).then((html) => {
+      // you can put any JS code here
+      window.location.href = '../free_cource/130/0.html';
+
+    });
+  });
+  </script>
+
+<script>
+  $(document).on('submit', '#reg-form', function (e) {
+    e.preventDefault();
+    
+    var form = $('#reg-form');
+    var message = form.parent().find('.message');
+    var data = form.serialize();
+    axios.post('/reg', data)
+        .then(function (resp) {
+          if(resp.data=='Registered') {
+            alert('Вы зарегистрированы, данные для входа отправлены вам на почту.');
+            $('.reg-form').fadeOut();
+            form[0].reset();
+          }
+          else {
+            alert(resp.data);
+            location.reload();
+          }
+        })
+        .catch(function (resp) {
+            console.log(resp);
+            alert("Спасибо за регистрацию.");
+            $('.reg-form').fadeOut();
+            form[0].reset();
+            window.location.href = '../123.html';
+        });
+  
+     
+  });
+  </script>
+</body>
+</html>
